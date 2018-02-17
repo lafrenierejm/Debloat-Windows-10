@@ -19,15 +19,5 @@ $chocopath = (Get-Package chocolatey | ?{$_.Name -eq "chocolatey"} | Select @{N=
 & $chocopath "upgrade all -y"
 choco install chocolatey-core.extension --force
 
-echo "Creating daily task to automatically upgrade Chocolatey packages"
-# adapted from https://blogs.technet.microsoft.com/heyscriptingguy/2013/11/23/using-scheduled-tasks-and-scheduled-jobs-in-powershell/
-$ScheduledJob = @{
-    Name = "Chocolatey Daily Upgrade"
-    ScriptBlock = {choco upgrade all -y}
-    Trigger = New-JobTrigger -Daily -at 2am
-    ScheduledJobOption = New-ScheduledJobOption -RunElevated -MultipleInstancePolicy StopExisting -RequireNetwork
-}
-Register-ScheduledJob @ScheduledJob
-
 echo "Installing Packages"
 $packages | %{choco install $_ --force -y}
