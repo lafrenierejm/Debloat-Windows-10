@@ -4,29 +4,10 @@
 # into your default drive's root directory.
 
 $packages = @(
-    "notepadplusplus.install"
-    "peazip.install"
-    #"7zip.install"
-    #"aimp"
-    #"audacity"
-    #"autoit"
-    #"classic-shell"
-    #"filezilla"
-    #"firefox"
-    #"gimp"
-    #"google-chrome-x64"
-    #"imgburn"
-    #"keepass.install"
-    #"paint.net"
-    #"putty"
-    #"python"
-    #"qbittorrent"
-    #"speedcrunch"
-    #"sysinternals"
-    #"thunderbird"
-    #"vlc"
-    #"windirstat"
-    #"wireshark"
+    "7zip.install"
+    "adobereader"
+    "classic-shell -installArgs ADDLOCAL=ClassicStartMenu"
+    "googlechrome"
 )
 
 echo "Setting up Chocolatey software package manager"
